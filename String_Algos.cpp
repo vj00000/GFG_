@@ -26,3 +26,20 @@ bool isSub(string S,string sub,int n,int m)
    if(S[n] == sub[m])return isSub(S,sub,n-1,m-1);
    else return isSub(S,sub,n-1,m);
  }
+
+bool areIsomorphic(string str1, string str2)
+    {
+        if(str1.length()!= str2.length())return false;
+        int count1[256]={0};
+        int count2[256]={0};
+        for(int i =0;i<str1.length();i++)
+        {
+            count1[str1[i]]+=i;
+            count2[str2[i]]+=i;   
+        }
+        for(int i=0;i<str1.length();i++)
+        {
+            if(count1[str1[i]] != count2[str2[i]])return false;
+        }
+        return true;
+    }
