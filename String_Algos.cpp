@@ -43,3 +43,29 @@ bool areIsomorphic(string str1, string str2)
         }
         return true;
     }
+
+bool areRotations(string s1,string s2)
+    {
+        if(s1.size()!= s2.size())return false;
+        s1 = s1+s1;
+        for(int i=0;i<s1.size();i++)
+        {
+            int j=0;
+            int c=i;
+            while(s1[i] == s2[j]&&j<s2.length()){i++;j++;}
+            if( j==s2.size())return true;
+            i=c;
+        }
+        return false;
+    }
+
+int strstr(string s, string x)
+{
+    for(int i=0;i<s.length();i++)
+    {
+        int c=i;int j=0;
+        while(s[c]==x[j]&&c<s.length()&&j<x.length()){c++;j++;}
+        if(j==x.length())return i;
+    }
+    return -1;
+}
